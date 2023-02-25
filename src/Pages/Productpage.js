@@ -3,10 +3,11 @@ import { FaRegStar } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import Header from "../component/Header";
 import { CartCoontext } from "../Context/Context";
-import CreateItem from "../State/CreateItem";
+
+import PacmanLoader from "react-spinners/PacmanLoader";
 
 const Productpage = () => {
-    const api = useContext(CreateItem);
+   
     const Globalstate = useContext(CartCoontext);
   
   const dispatch = Globalstate.dispatch;
@@ -30,9 +31,13 @@ function clickHandle(){
           `https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products/${params.id}`
         );
         const data = await response.json();
-        setDetails(data);
-        setLoader(true);
-        console.log(details);
+        
+        setTimeout(()=> {
+          setDetails(data);
+          setLoader(true);
+          console.log(details);
+
+        },2000)
       } catch (err) {
         console.log(err);
       }
@@ -40,7 +45,19 @@ function clickHandle(){
   }, []);
   if (!loader) {
     return (
-      <h1 style={{ textAlign: "center", marginTop: "10px" }}> loading.... </h1>
+      <PacmanLoader
+
+      color="rgb(244, 51, 151)"
+      cssOverride={{left: '42%',
+          position: 'absolute',
+          textAlign: 'center',
+          top: '42%'
+      }}
+      size={45}
+      aria-label="Loading Spinner"
+      data-testid="loader"
+    />
+    
     );
   }
 
