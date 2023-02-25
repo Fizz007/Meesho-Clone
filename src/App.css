@@ -1,38 +1,390 @@
-.App {
-  text-align: center;
+img{
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.pos{
+  position: fixed;
+  top: 0;
+  
+  background-color: white;
+  z-index: 99;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.headder{
+  
+  height: 72px;
+  outline: 1px solid #ccc;
+  
+  padding: 0px 10px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+ 
+  font-weight: 400;
+}
+.headerLeft,
+.headerRight{
+  display: flex;
+  align-items: center;
+  
+}
+.headerRight{
+  margin-left: 20rem;
+  margin-right: 7.15rem;
+}
+.logoContainer{
+  cursor: pointer;
+  width: 155px;
+}
+
+
+.searchInputContainer{
+  width: 400px;
+  height: 45px;
+  outline:1px solid rgb(126, 126, 126);
+  display: flex;
+  margin-left: 25px;
+  border-radius: 3px;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+}
+.searchIcon{
+  width: 20px;
+  margin: 6px;
+}
+
+form{
+  width: 100%;
+}
+.inputSearch{
+  width: 100%;  
+  border:none;
+  outline: none;
+  font-size: 16px;
+}
+
+.mobileIcon{
+  width: 15px;
+  margin: 5px;
+  color:var(--hoverTextColor);
+  cursor: pointer;
+}
+
+.downloadContainer{
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-right: 20px;
+  position: relative;
+}
+
+.downloadContainer:hover{
+  color:var(--hoverTextColor);
+  cursor: pointer;
+}
+
+.downloadBtn{
+  display: block;
+  width: 180px;
+  margin-top: 5px;
+}
+
+.downloadHoverBtnContainer{
+  position: absolute;
+  left: 25px;
+  bottom: 0;
+  top:50px;
+  /* box-shadow: 0px 0px 5px rgba(0,0,0,0.3); */
+  width: 200px;
+  /* background-color: red; */
+  /* display: none; */
+  height: 200px;
+  padding: 10px;
+  margin-left: -30px;
+  color:var(--textColor);
+  background: white;
+  z-index: 2;
+}
+/* .downloadContainer:hover .downloadHoverBtnContainer,
+.downloadContainer:focus .downloadHoverBtnContainer{
+  display: block;
+} */
+
+.downloadContainer p{
+  margin:0;
+  padding: 0;
+  font-size: 17px;
+}
+.profileContainer p{
+  margin:0;
+  padding: 0;
+  font-size: 17px;
+}
+
+.profileAndCart{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  
+}
+.profileContainer:hover
+{
+  color: black;
+ 
+}
+
+h5{
+  color: #ccc;
+}
+
+.profileIcon,
+.CartIcon{
+  width: 20px;
+}
+
+
+.profileHoverBtnContainer{
+
+  position: absolute;
+    right: 95px;
+    bottom: 0;
+    top:100px;
+    width: 200px;
+    /* background-color: red; */
+    /* display: none; */
+    height: 200px;
+    padding: 20px;
+    margin-left: -30px;
+    background: white;
+
+    z-index: 999;
+}
+
+.login_btn{
+  width: 160px;
+  background-color: rgb(244, 51, 151);
+
   color: white;
+  padding: 18px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+}
+.profileAndCart p{
+  margin:0;
+  padding: 0;
+}
+.profileContainer,
+.CartContainer{
+
+ 
+  padding: 0px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.App-link {
-  color: #61dafb;
+.becomeSupplierContainer{
+  padding: 0px 30px;
+  border-left: 1.5px solid #ccc;
+  border-Right: 1.5px solid #ccc;
+  font-size: 17px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Navigation */
+
+nav{
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  height: 54px;
+  position: fixed;
+  top: 70px;
+  background-color: white;
+  z-index: 99;
+  
+}
+nav ul{
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+  height: 100%;
+  margin: 0; 
+  position: relative;
+}
+nav ul li{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  /* background-color: red; */
+  border-bottom: 2px solid transparent;
+  cursor: pointer; 
+  
+}
+nav ul li:hover{
+  color:var(--hoverTextColor);
+  border-bottom: 4px solid var(--hoverTextColor);
+}
+
+
+/**module box submenu***/
+.subMenu{
+  position: absolute;
+  /* height: 400px; */
+  top:51px;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  /* background-color: red; */
+  display: none;
+  margin: 0px 10px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  padding: 20px;
+}
+
+nav ul li:hover .subMenu{
+  display: block;
+  z-index: 999;
+}
+
+.subMenu p{
+  color:var(--textColor)
+
+}
+.submenuList{
+  display: flex;
+
+}
+.column{
+  margin-right: 40px;
+}
+
+/* //Product detail */
+
+.detailsCard{
+  max-width: 1200px;
+  width: 100%;
+  margin: 100px auto;
+  box-shadow: 0 0 5px #ccc;
+}
+
+.details{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 30px 0;
+}
+.details .big-img{
+  max-width: 500px;
+  min-width: 290px;
+  overflow: hidden;
+  margin: 25px;
+}
+.big-img img{
+  width: 100%;
+  height: 100%;
+  max-height: 400px;
+  display: block;
+  object-fit: cover;
+}
+
+.rating{
+  
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.btn{
+ 
+  color: rgb(244, 51, 151);
+}
+
+.details .box{
+  max-width: 500px;
+  min-width: 290px;
+  margin: 25px;
+}
+.box .row{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.box .row h2{
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.box .row span{
+  color: crimson;
+}
+.box .colors button{
+  width: 30px;
+  height: 30px;
+  border: 1px solid #333;
+  outline: none;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.box p{
+  line-height: 1.5;
+  margin: 15px 0;
+}
+
+/* @media screen and (min-width: 1025px) and (max-width: 1025px){
+  .headerRight{
+    margin-left: 17rem;
   }
-  to {
-    transform: rotate(360deg);
+  
+} */
+
+@media screen and (max-width: 1024px) {
+  .headerRight{
+    margin-left: 2rem;
   }
+  
+  .searchInputContainer{
+    width: 10rem;
+  }
+
+
+}
+
+@media screen and (max-width: 768px) {
+  .logoContainer{
+    width: 4rem;
+  }
+
+  .searchInputContainer{
+    width: 15rem;
+  }
+
+  .headerRight{
+    margin-left: 0.5rem;
+  }
+
+  
+}
+
+@media screen and (max-width: 426px){
+  .logoContainer{
+    width: 5rem;
+    transform: rotateY(45deg);
+  }
+
+  .searchInputContainer{
+    display: none;
+  }
+
+  .downloadContainer{
+    display: none;
+  
+   font-weight: lighter;
+  }
+
+
 }
