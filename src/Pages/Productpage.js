@@ -24,6 +24,11 @@ const [clicked,setClicked] = useState(false);
 function clickHandle(){
     setClicked(true);
 }
+
+function addtoCart(){
+  dispatch({type:'ADD', payload: details })
+ 
+}
   useEffect(() => {
     (async function () {
       try {
@@ -35,7 +40,7 @@ function clickHandle(){
         setTimeout(()=> {
           setDetails(data);
           setLoader(true);
-          console.log(details);
+          // console.log(details);
 
         },2000)
       } catch (err) {
@@ -81,7 +86,7 @@ function clickHandle(){
                         details.rating.rate >= 3.5 ? " #23bb75" : "rgb(244, 182, 25) ",
                       }}>{details.rating.rate} <FaRegStar color="#fff"/> </span>
                 <p>{details.description}</p>
-            <button className="btn"  onClick={()=> dispatch({type:'ADD', payload: details })}>    Add to Cart</button>  
+            <button className="btn"  onClick={addtoCart}>    Add to Cart</button>  
             </div>     
       
            

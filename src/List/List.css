@@ -1,4 +1,5 @@
 .each-item-wrapper {
+    /* margin-top: 8rem; */
     display: grid;
     grid-gap: 35px;
     justify-content: space-between;
@@ -6,3 +7,19 @@
     height: calc(100vh - 125px);
     overflow: none;
 }
+
+.singleCompo {
+    height: 350px;
+    width: 300px;
+    border: 1px rgb(211, 211, 211) solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 8px 7px 5px gray;
+    margin-top: 100px;
+    transition: transform 0.5s;
+    border-radius: 10px;
+    justify-content: space-evenly;
+  }

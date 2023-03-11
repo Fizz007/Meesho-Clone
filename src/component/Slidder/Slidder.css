@@ -32,6 +32,7 @@ img{
   letter-spacing: 3px;
 }
 
+
 .button{
   width: 8rem;
   padding: 0.8rem;
@@ -40,5 +41,17 @@ img{
   background-color: transparent;
   cursor: pointer;
   
+  
+}
 
+@media only screen and (max-width: 380px) {
+  .slide{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px){
+  .slide{
+    display: none;
+  }
 }

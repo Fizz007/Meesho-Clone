@@ -18,11 +18,12 @@ import CreateItem from "../State/CreateItem";
 const Header = () => {
   const [show, setShow] = useState("none");
   const [playstore, setPlaystore] = useState(false);
+  // const [range, setRange] = useState(0);
   const [profile, setProfile] = useState(false);
   const [text,setText] = useState("");
   
   const ittem = useContext(CreateItem);
- 
+  
   const Globalstate = useContext(CartCoontext);
 
   const navigate = useNavigate();
@@ -48,11 +49,18 @@ const Header = () => {
   }
 
   function changehandler(e){
-    setText(e.target.value);
-    const filterProduct = ittem.newdata.filter((ele) => ele.title.toLowerCase().includes(text.toLowerCase()) || ele.description.toLowerCase().includes(text.toLowerCase()))
-
+    setText(e.target.value)
+    const filterProduct = ittem.data.filter((ele) => ele.title.toLowerCase().includes(text.toLowerCase()) 
+    ||
+    (ele.description.toLowerCase().includes(text.toLowerCase()))
+    
+    );
+   
+    // console.log(filterProduct)
     ittem.updateapidata(filterProduct);
   }
+
+ 
 
   function handleuser(){
     if( localData === null){
@@ -63,7 +71,7 @@ const Header = () => {
       
       localStorage.removeItem("user");
       setProfile(false)
-      // navigate("/")
+     
     }
     
   }
@@ -80,17 +88,19 @@ const Header = () => {
               <img src={search} />
             </div>
             <form action="">
-              <input
-                value={text}
+
+              <input type="search"
+            
+               value={text}
                 onChange={changehandler}
-                type="text"
-                onKeyDown={valuee}
+                 
+               
                 placeholder="Try Saree, Kurti or Search by Product Code"
-                className="inputSearch"
-              />
+                className="inputSearch" />
+            
             </form>
             <div className="inputCloseSearch">
-              <RxCross2 style={{ display: ` ${show}` }} />
+              {/* <RxCross2 style={{ display: ` ${show}` }} /> */}
             </div>
           </div>
         </div>

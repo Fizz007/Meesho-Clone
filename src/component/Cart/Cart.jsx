@@ -10,11 +10,12 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { CartCoontext } from "../../Context/Context";
-import Navbar from "../Navv/Nav";
+
 import Header from "../Header";
 
 
 const Cart = () => {
+  const [show, setShow] = useState('none')
   const navigate = useNavigate();
   const Globalstate = useContext(CartCoontext);
   
@@ -22,14 +23,14 @@ const Cart = () => {
 
   localStorage.setItem("usercart", JSON.stringify(state))
   
-  console.log(state)
+  // console.log(state)
   const dispatch = Globalstate.dispatch;
 
   const total = state.reduce((total, item) => {
     return (total + item.price * item.quantity );
   }, 0);
 
-  const Ctotal = total + (total*18/100)
+  // const Ctotal = total + (total*18/100)
 
   const toastnotify = () => {
    toast.success("Order has been placed")
@@ -81,14 +82,23 @@ const Cart = () => {
             </div>
           );
         })}
+
+        {/* {
+
+          state.length > 1 ? setShow('block') : setShow('none')
+        } */}
+
+    
         {state.length > 0 && (
           <>
             <div className="total">
-              <h2>{total.toFixed(2)}</h2>
+              <h2>₹{total.toFixed(2)}</h2>
             </div>
             <button onClick={toastnotify} className="btn pointer">
               Check Out
             </button>
+
+           
             <ToastContainer
               position="top-center"
               autoClose={3000}
@@ -103,6 +113,8 @@ const Cart = () => {
             />
           </>
         )}
+
+        {/* <button style={{display: `${show}`}}>More</button> */}
       </div>
     </>
   );
