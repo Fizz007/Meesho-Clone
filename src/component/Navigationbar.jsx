@@ -13,7 +13,7 @@ import womenwestern from '../data/WomenWestern.js'
 
 const Navigationbar = () => {
   return (
-    <div>
+    <div className='showNav'>
       <nav>
         <ul>
             <li>Women Ethnic

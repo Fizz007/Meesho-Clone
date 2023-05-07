@@ -27,7 +27,7 @@ function clickHandle(){
 
 function addtoCart(){
   dispatch({type:'ADD', payload: details })
- 
+
 }
   useEffect(() => {
     (async function () {
@@ -48,6 +48,7 @@ function addtoCart(){
       }
     })();
   }, []);
+
   if (!loader) {
     return (
       <PacmanLoader
@@ -87,10 +88,8 @@ function addtoCart(){
                       }}>{details.rating.rate} <FaRegStar color="#fff"/> </span>
                 <p>{details.description}</p>
             <button className="btn"  onClick={addtoCart}>    Add to Cart</button>  
-            </div>     
-      
-           
-        
+            </div>    
+               
          
              
        

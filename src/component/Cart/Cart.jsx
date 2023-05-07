@@ -18,11 +18,11 @@ const Cart = () => {
   const [show, setShow] = useState('none')
   const navigate = useNavigate();
   const Globalstate = useContext(CartCoontext);
+  console.log(Globalstate)
   
   const state = Globalstate.state;
-
   localStorage.setItem("usercart", JSON.stringify(state))
-  
+ 
   // console.log(state)
   const dispatch = Globalstate.dispatch;
 
@@ -82,11 +82,6 @@ const Cart = () => {
             </div>
           );
         })}
-
-        {/* {
-
-          state.length > 1 ? setShow('block') : setShow('none')
-        } */}
 
     
         {state.length > 0 && (

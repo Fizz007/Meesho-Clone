@@ -10,7 +10,7 @@ import CreateItem from '../State/CreateItem';
 
 const List = () => {
     const api = useContext(CreateItem);
-    
+
     // const [data, setData] = useState(null);
    
 
@@ -35,7 +35,7 @@ const List = () => {
               
     }, [])
     
-
+   
     return (
         <>
         <div className="each-item-wrapper">

@@ -219,6 +219,7 @@ nav ul li{
   height: 100%;
   display: flex;
   align-items: center;
+  padding: 6px;
   margin: 0;
   /* background-color: red; */
   border-bottom: 2px solid transparent;
@@ -385,6 +386,10 @@ nav ul li:hover .subMenu{
     display: none;
   
    font-weight: lighter;
+  }
+
+  .showNav{
+    display: none;
   }
 
 

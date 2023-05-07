@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import meesho from "../img/meesho.png";
 import search from "../img/search.png";
 import mobile from "../img/mobile.png";
@@ -20,14 +20,28 @@ const Header = () => {
   const [playstore, setPlaystore] = useState(false);
   // const [range, setRange] = useState(0);
   const [profile, setProfile] = useState(false);
-  const [text,setText] = useState("");
-  
+  const [text, setText] = useState("");
+
   const ittem = useContext(CreateItem);
-  
+
   const Globalstate = useContext(CartCoontext);
 
   const navigate = useNavigate();
-  
+
+  useEffect(() => {
+    let timer = setTimeout(() => {
+      const filterProduct = ittem.data.filter(
+        (ele) =>
+          ele.title.toLowerCase().includes(text.toLowerCase()) ||
+          ele.description.toLowerCase().includes(text.toLowerCase())
+      );
+
+      // console.log(filterProduct)
+      ittem.updateapidata(filterProduct);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [text]);
 
   //Step-2
   const localData = JSON.parse(localStorage.getItem("user") || null);
@@ -48,32 +62,18 @@ const Header = () => {
     setProfile(!profile);
   }
 
-  function changehandler(e){
-    setText(e.target.value)
-    const filterProduct = ittem.data.filter((ele) => ele.title.toLowerCase().includes(text.toLowerCase()) 
-    ||
-    (ele.description.toLowerCase().includes(text.toLowerCase()))
-    
-    );
-   
-    // console.log(filterProduct)
-    ittem.updateapidata(filterProduct);
+  function changehandler(e) {
+    setText(e.target.value);
   }
 
- 
-
-  function handleuser(){
-    if( localData === null){
+  function handleuser() {
+    if (localData === null) {
       // localStorage.removeItem("user");
-      navigate("/signup")  
-      
-    }else if( localData !== null){
-      
+      navigate("/signup");
+    } else if (localData !== null) {
       localStorage.removeItem("user");
-      setProfile(false)
-     
+      setProfile(false);
     }
-    
   }
 
   return (
@@ -88,16 +88,13 @@ const Header = () => {
               <img src={search} />
             </div>
             <form action="">
-
-              <input type="search"
-            
-               value={text}
+              <input
+                type="search"
+                value={text}
                 onChange={changehandler}
-                 
-               
                 placeholder="Try Saree, Kurti or Search by Product Code"
-                className="inputSearch" />
-            
+                className="inputSearch"
+              />
             </form>
             <div className="inputCloseSearch">
               {/* <RxCross2 style={{ display: ` ${show}` }} /> */}
@@ -142,13 +139,17 @@ const Header = () => {
               {profile && (
                 <div style={{ display: "block" }}>
                   <div className="profileHoverBtnContainer">
-                    <h3>Hello {localData === null ? 'User' :  localData.name }</h3>
-                    <h5> {localData !== null ? 'Welcome to Meesho' : 'Access your account' }</h5>
-                    <button
-                      onClick={handleuser}
-                      className="login_btn"
-                    >
-                      Sign {localData!== null ? "out" : "up"}
+                    <h3>
+                      Hello {localData === null ? "User" : localData.name}
+                    </h3>
+                    <h5>
+                      {" "}
+                      {localData !== null
+                        ? "Welcome to Meesho"
+                        : "Access your account"}
+                    </h5>
+                    <button onClick={handleuser} className="login_btn">
+                      Sign {localData !== null ? "out" : "up"}
                     </button>
                   </div>
                 </div>
