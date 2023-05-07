@@ -337,6 +337,11 @@ nav ul li:hover .subMenu{
   margin: 15px 0;
 }
 
+.size{
+  margin: 4px;
+  padding: 5px;
+}
+
 /* @media screen and (min-width: 1025px) and (max-width: 1025px){
   .headerRight{
     margin-left: 17rem;

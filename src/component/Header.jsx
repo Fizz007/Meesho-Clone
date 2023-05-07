@@ -76,6 +76,11 @@ const Header = () => {
     }
   }
 
+  function handleCart(){
+     
+    navigate("/cart")
+  }
+
   return (
     <div name="home" className="pos">
       <header className="headder">
@@ -162,7 +167,7 @@ const Header = () => {
                   color="secondary"
                   badgeContent={Globalstate.state.length}
                 >
-                  <GiShoppingCart size={28} onClick={() => navigate("/cart")} />
+                  <GiShoppingCart size={28} onClick={handleCart} />
                 </Badge>
               </div>
               <p>Cart</p>

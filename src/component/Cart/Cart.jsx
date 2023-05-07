@@ -18,12 +18,13 @@ const Cart = () => {
   const [show, setShow] = useState('none')
   const navigate = useNavigate();
   const Globalstate = useContext(CartCoontext);
-  console.log(Globalstate)
+  
   
   const state = Globalstate.state;
+ 
   localStorage.setItem("usercart", JSON.stringify(state))
  
-  // console.log(state)
+  
   const dispatch = Globalstate.dispatch;
 
   const total = state.reduce((total, item) => {
@@ -54,6 +55,8 @@ const Cart = () => {
               <img src={item.image} alt="" />
               <p>{item.title}</p>
               <p>{item.quantity * item.price }</p>
+              <p>{state[1]}</p>
+          
               <div className="quantity">
                 <button
                   onClick={() => dispatch({ type: "INCREASE", payload: item })}
