@@ -43,6 +43,8 @@ const Header = () => {
     return () => clearTimeout(timer);
   }, [text]);
 
+  
+
   //Step-2
   const localData = JSON.parse(localStorage.getItem("user") || null);
   // console.log(localData)
@@ -95,8 +97,8 @@ const Header = () => {
             <form action="">
               <input
                 type="search"
-                value={text}
-                onChange={changehandler}
+                // value={text}
+                // onChange={changehandler}
                 placeholder="Try Saree, Kurti or Search by Product Code"
                 className="inputSearch"
               />

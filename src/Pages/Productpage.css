@@ -1,0 +1,19 @@
+.more {
+    color: rgb(88, 88, 88);
+    background-color: #f9f9f9;
+    position: absolute;
+    top: 489px;
+    left: 5.9px;
+    font-size: 13.5px;
+    font-weight: 400;
+    padding: 9px 10px;
+    border-top-right-radius: 5px;
+  }
+
+  #product-article-2 img{
+    width: 100%;
+    max-width: 400px;
+    height: 520px;
+    border: 1px solid rgb(234, 233, 233);
+    border-radius: 6px;
+  }
