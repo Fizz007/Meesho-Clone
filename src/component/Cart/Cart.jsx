@@ -1,8 +1,5 @@
-import { createContext, useContext, useState } from "react";
-// import { CartCoontext } from "../../../Context/Context";
-
+import { useContext, useEffect} from "react";
 import "./Cart.css";
-// import Navbar from "../../Navv/Nav";
 import { RiDeleteBin4Fill } from "react-icons/ri";
 import { IoAddCircle } from "react-icons/io5";
 import { AiFillMinusCircle } from "react-icons/ai";
@@ -15,32 +12,24 @@ import Header from "../Header";
 
 
 const Cart = () => {
-  const [show, setShow] = useState('none')
   const navigate = useNavigate();
-  const Globalstate = useContext(CartCoontext);
-  
+  const Globalstate = useContext(CartCoontext);  
   
   const state = Globalstate.state;
  
   localStorage.setItem("usercart", JSON.stringify(state))
- 
-  
+   
   const dispatch = Globalstate.dispatch;
 
   const total = state.reduce((total, item) => {
-    return (total + item.price * item.quantity );
+    return (total + (item.price * 3) * item.quantity );
   }, 0);
 
+  localStorage.setItem("totalPrice",total) 
   // const Ctotal = total + (total*18/100)
 
-  const toastnotify = () => {
-   toast.success("Order has been placed")
-   localStorage.removeItem("usercart")
-   state.map((item)=> {
-
-     dispatch({ type: "REMOVE", payload: item })
-   })
-   navigate('/');
+  const toastnotify = () => { 
+   navigate('/address');
   };
   return (
     <>
@@ -54,7 +43,7 @@ const Cart = () => {
             <div className="card" key={index}>
               <img src={item.image} alt="" />
               <p>{item.title}</p>
-              <p>{item.quantity * item.price }</p>
+              <p>{item.quantity * (item.price * 3) }</p>
               <p>{state[1]}</p>
           
               <div className="quantity">
@@ -112,7 +101,7 @@ const Cart = () => {
           </>
         )}
 
-        {/* <button style={{display: `${show}`}}>More</button> */}
+        
       </div>
     </>
   );

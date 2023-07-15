@@ -75,10 +75,6 @@ const Signup = () => {
     name: "",
     email: "",
     pass: "",
- 
-    logInn: true,
-    id: nanoid(),
-
   });
 
   // let [err, seterr] = useState(false);
@@ -113,6 +109,9 @@ const Signup = () => {
     }
   };
 
+  function moveToLogin(){
+    navigate('/login')
+  }
 
   return (
 
@@ -151,6 +150,9 @@ const Signup = () => {
 
           {/* {err ? <div style={{color: 'red' , font_size: '15px'}}>{errtxt}</div> : null} */}
           <Button onClick={handleSubmit}>Signup</Button>
+
+          <div className="not-member">Already have an account?<span onClick={moveToLogin}>Log In</span>
+        </div>
         </Form>
       </Wrapper>
     </Container>

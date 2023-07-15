@@ -341,6 +341,21 @@ nav ul li:hover .subMenu{
   margin: 4px;
   padding: 5px;
 }
+.not-member{
+  font-size: 1rem;
+  margin-top: 1.4rem;
+  cursor: pointer;
+}
+.google{
+  display: flex;
+  
+  width: 160px;
+  color: white;
+  padding: 12px 5px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+}
 
 /* @media screen and (min-width: 1025px) and (max-width: 1025px){
   .headerRight{

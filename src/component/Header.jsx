@@ -2,14 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import meesho from "../img/meesho.png";
 import search from "../img/search.png";
 import mobile from "../img/mobile.png";
-import user from "../img/user.png";
-// import cart from "../img/cart.png";
-
-import { RxCross2 } from "react-icons/rx";
+import { AiOutlineMail,AiOutlineUser } from "react-icons/ai";
+import { auth, provider } from "../firebase";
+import { signInWithPopup, signOut } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Badge } from "@mui/material";
-
 import { GiShoppingCart } from "react-icons/gi";
-// import Cart from "./Footer/Cart/Cart";
 import { useNavigate } from "react-router-dom";
 import { CartCoontext } from "../Context/Context";
 
@@ -17,6 +15,7 @@ import CreateItem from "../State/CreateItem";
 
 const Header = () => {
   const [show, setShow] = useState("none");
+  const [user] = useAuthState(auth);
   const [playstore, setPlaystore] = useState(false);
   // const [range, setRange] = useState(0);
   const [profile, setProfile] = useState(false);
@@ -69,14 +68,22 @@ const Header = () => {
   }
 
   function handleuser() {
-    if (localData === null) {
+    if (localData === null && !user) {
       // localStorage.removeItem("user");
-      navigate("/signup");
+      navigate("/login");
     } else if (localData !== null) {
       localStorage.removeItem("user");
       setProfile(false);
+    }else if(user){
+      const signUserOut = async () => {
+        await signOut(auth);
+      };
+      signUserOut();
+      setProfile(false);
     }
   }
+
+ 
 
   function handleCart(){
      
@@ -138,8 +145,8 @@ const Header = () => {
 
           <div className="profileAndCart">
             <div className="profileContainer">
-              <div className="profileIcon">
-                <img src={user} onClick={openLoginbtn} />
+              <div className="profileIcon" >                
+                {user ? <img style={{borderRadius: '50%', width: '30px'}} src={user ? user?.photoURL:  ""} onClick={openLoginbtn} /> : <AiOutlineUser size={20}/>}
               </div>
               <p onClick={openLoginbtn}>Profile</p>
 
@@ -147,16 +154,21 @@ const Header = () => {
                 <div style={{ display: "block" }}>
                   <div className="profileHoverBtnContainer">
                     <h3>
-                      Hello {localData === null ? "User" : localData.name}
+                      {/* Hello {localData === null ? "User" : localData.name} */}
+                     Hello {user ? user.displayName : localData ? localData.name : "User"}
                     </h3>
                     <h5>
-                      {" "}
+                      
                       {localData !== null
                         ? "Welcome to Meesho"
                         : "Access your account"}
                     </h5>
                     <button onClick={handleuser} className="login_btn">
-                      Sign {localData !== null ? "out" : "up"}
+                      {/* Sign {localData !== null ? "out" : "up"} */}
+                      {/* {user ? 'Signout' : 'Sign In'} {!user && <FcGoogle size={25}/>} */}
+                      {user ? 'Signout' : localData !== null ? 'Signout' : "SignIn"}
+
+                     
                     </button>
                   </div>
                 </div>

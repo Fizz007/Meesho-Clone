@@ -1,11 +1,12 @@
-import { Home } from "@mui/icons-material";
-import { nanoid } from "nanoid";
-import { useState } from "react";
+import { FcGoogle } from "react-icons/fc";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import styled from "styled-components";
 import { mobile, tab } from "../responsive";
-// import Button from '@mui/material/Button';
+import { useAuthState } from "react-firebase-hooks/auth";
+import { signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../firebase";
 
 const Container = styled.div`
   width: 100vw;
@@ -29,7 +30,6 @@ const Wrapper = styled.div`
   ${mobile({ width: "55%" })}
   ${tab({ width: "55%" })}
 `;
-
 
 const Title = styled.h1`
   font-size: 24px;
@@ -56,8 +56,25 @@ const Button = styled.button`
   &:hover {
     background-color: rgb(240, 26, 62);
     font-weight: 500;
-    
-    }
+  }
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
+`;
+const Buttong = styled.button`
+  width: 40%;
+  border: none;
+  padding: 15px 20px;
+  display: flex;
+  justify-content:center;
+  gap: 10px;
+  align-items: center;
+  font-size:15px;
+  background-color: rgb(239, 96, 120);
+  &:hover {
+    background-color: rgb(240, 26, 62);
+    font-weight: 500;
+  }
   color: white;
   cursor: pointer;
   margin-bottom: 10px;
@@ -71,20 +88,34 @@ const Link = styled.a`
 `;
 
 const Login = () => {
+  const [user, setUser] = useState(null);
+  const [usser] = useAuthState(auth);
   let [value, setValue] = useState({
     name: "",
     email: "",
     pass: "",
- 
-    logInn: true,
-    id: nanoid(),
-
   });
-
+  
   // let [err, seterr] = useState(false);
   // let [errtxt, seterrtxt] = useState("");
   const navigate = useNavigate();
-
+  
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem('user'));
+    setUser(userData);
+    console.log("user",userData)
+  }, []);
+  
+  function handleUser() {
+    if (!usser) {
+      const signInWithGoogle = async () => {
+        await signInWithPopup(auth, provider);
+      };
+      signInWithGoogle();
+      navigate("/");
+      console.log("signIn")
+    } 
+  }
   let handleInputChange = (e) => {
     setValue({
       ...value,
@@ -93,44 +124,45 @@ const Login = () => {
   };
 
   let handleSubmit = (e) => {
-
-    // e.preventDefault();
+    e.preventDefault();
+    console.log(user);
     if (!value.email || !value.pass) {
       toast.error("Some fields are missing");
-   
-    } else {
-  
-
+    } else if (user && user.email === value.email &&
+      user.pass === value.pass
+    ) {
+      toast.success("LogIn successful", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      navigate("/");
+    }else{
+      toast.success("Error", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
       // setValue((prev)=> ({
       //   ...prev,
       //   logInn: true }));
       // localStorage.setItem("user", JSON.stringify(value));
-  
-      navigate("/");
-      toast.success("Login Sucessful",{
-        position: toast.POSITION.TOP_RIGHT,}
-      )
-      
-    }
+
+      // navigate("/");
+      // console.log("auth")
+      // toast.success("Login Sucessful", {
+      //   position: toast.POSITION.TOP_RIGHT,
+      // });
+    
   };
 
+  function moveToRegister() {
+    navigate("/signup");
+  }
 
   return (
-
     <Container>
-      
       <Wrapper>
-
         <Title>SIGN IN</Title>
         <Form>
-          {/* <Input
-            className="input"
-            type="text"
-            name="name"
-            placeholder="Enter your username"
-            value={value.name}
-            onChange={handleInputChange}
-          /> */}
+         
           <Input
             className="input"
             name="email"
@@ -152,6 +184,13 @@ const Login = () => {
 
           {/* {err ? <div style={{color: 'red' , font_size: '15px'}}>{errtxt}</div> : null} */}
           <Button onClick={handleSubmit}>LOGIN</Button>
+          <Buttong onClick={handleUser}>Login <span>
+            <FcGoogle size={25}/>
+          </span></Buttong>
+
+          <div className="not-member">
+            Not a member? <span onClick={moveToRegister}>Register Now</span>
+          </div>
         </Form>
       </Wrapper>
     </Container>

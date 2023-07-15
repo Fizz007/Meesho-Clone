@@ -1,16 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import "../Product/Product.css";
 import { FaRegStar } from "react-icons/fa";
 import { CiDiscount1 } from "react-icons/ci";
-
-import { CartCoontext } from "../Context/Context";
-import { Link, useNavigate } from "react-router-dom";
+import { Link,  } from "react-router-dom";
 
 const Product = (props) => {
-  // const Globalstate = useContext(CartCoontext)
-
-  // const dispatch = Globalstate.dispatch;
-  // const navigate = useNavigate();
   
   const { item } = props;
   var qty = "quantity";
@@ -35,7 +29,7 @@ const Product = (props) => {
               </span>
             </p>
             <p className="price_rate">
-              <span className="b-d-price">₹{item.price * 3}</span>
+              <span className="b-d-price">₹{(item.price * 3).toFixed(0)}</span>
               <div className="bg">
                 <span
                   className="b-rating"

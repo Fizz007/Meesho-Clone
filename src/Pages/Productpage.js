@@ -39,9 +39,10 @@ const Productpage = () => {
         position: toast.POSITION.TOP_RIGHT,
       });
 
-      navigate("/signup");
+      navigate("/login");
     } else {
       dispatch({ type: "ADD", payload: details });
+      
     }
   }
   useEffect(() => {

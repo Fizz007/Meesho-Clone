@@ -9,6 +9,9 @@ import Cart from "./component/Cart/Cart";
 import SetItem from "./State/SetItem";
 import Signup from "./Login/Signup";
 import Productpage from "./Pages/Productpage";
+import Address from "./component/Address/Address";
+import Payment from "./component/Payment/Payment";
+import Summary from "./component/Summary/Summary";
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/productpage/:id" element={<Productpage />} />
+        <Route path="/address" element={<Address/>} />
+        <Route path="/payment" element={<Payment/>} />
+        <Route path="/summary" element={<Summary/>} />
       </Routes>
       <ToastContainer
         position="bottom-center"
