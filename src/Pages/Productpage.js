@@ -9,6 +9,9 @@ import { Section } from "./Styled-product";
 import "../Pages/Productpage.css";
 import { CiDiscount1 } from "react-icons/ci";
 import ratingImg from '../Pages/rating.png'
+import { useAuthState } from "react-firebase-hooks/auth";
+import { signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../firebase";
 import {
   FaShoppingCart,
   FaStar,
@@ -24,7 +27,8 @@ const Productpage = () => {
   const [details, setDetails] = useState({});
   const [loader, setLoader] = useState(false);
   const [clicked, setClicked] = useState(false);
-
+  const [user] = useAuthState(auth);
+ console.log(user)
   var qty = "quantity";
   var val = 1;
   details[qty] = val;
@@ -34,13 +38,14 @@ const Productpage = () => {
   }
 
   function addtoCart() {
-    if (localStorage.getItem("user") === null) {
+    if (!user && localStorage.getItem("user") === null) {
       toast.error("Please login first", {
         position: toast.POSITION.TOP_RIGHT,
       });
 
       navigate("/login");
-    } else {
+    }
+     else {
       dispatch({ type: "ADD", payload: details });
       
     }
@@ -130,7 +135,7 @@ const Productpage = () => {
           <div id="price">
             <h2>{details.title}</h2>
             <h3 className="price">
-              ₹{details.price * 3}
+              ₹{(details.price * 3).toFixed(2)}
             </h3>
             <h4 className="rating">
               <span>

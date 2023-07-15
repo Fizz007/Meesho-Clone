@@ -1,17 +1,3 @@
-*{
-  box-sizing: border-box;
-}
-:root{
-  --hoverTextColor:rgb(244, 51, 151);
-  --textColor : rgb(87, 85, 85);
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  font-family: 'Roboto', sans-serif;
-  color:var(--textColor);
-}
-
-
+/* ::-webkit-scrollbar {
+  width: 0;
+} */
