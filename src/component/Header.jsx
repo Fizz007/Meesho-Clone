@@ -35,6 +35,8 @@ const Header = () => {
           ele.description.toLowerCase().includes(text.toLowerCase())
       );
 
+      console.log(filterProduct)
+
       // console.log(filterProduct)
       ittem.updateapidata(filterProduct);
     }, 2000);
@@ -104,8 +106,8 @@ const Header = () => {
             <form action="">
               <input
                 type="search"
-                // value={text}
-                // onChange={changehandler}
+                value={text}
+                onChange={changehandler}
                 placeholder="Try Saree, Kurti or Search by Product Code"
                 className="inputSearch"
               />
