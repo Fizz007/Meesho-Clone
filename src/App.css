@@ -414,3 +414,27 @@ nav ul li:hover .subMenu{
 
 
 }
+@media screen and (max-width: 320px){
+  .logoContainer{
+    width: 5rem;
+  }
+
+  .searchInputContainer{
+    display: none;
+  }
+
+  .downloadContainer{
+    display: none;
+  
+   font-weight: lighter;
+  }
+
+  .becomeSupplierContainer{
+    display: none;
+  }
+  .showNav{
+    display: none;
+  }
+
+
+}
