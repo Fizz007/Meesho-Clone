@@ -17,7 +17,6 @@ const Header = () => {
   const [show, setShow] = useState("none");
   const [user] = useAuthState(auth);
   const [playstore, setPlaystore] = useState(false);
-  // const [range, setRange] = useState(0);
   const [profile, setProfile] = useState(false);
   const [text, setText] = useState("");
 
@@ -36,8 +35,6 @@ const Header = () => {
       );
 
       console.log(filterProduct)
-
-      // console.log(filterProduct)
       ittem.updateapidata(filterProduct);
     }, 2000);
 

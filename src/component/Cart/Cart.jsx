@@ -1,4 +1,4 @@
-import { useContext, useEffect} from "react";
+import { useContext} from "react";
 import "./Cart.css";
 import { RiDeleteBin4Fill } from "react-icons/ri";
 import { IoAddCircle } from "react-icons/io5";
@@ -28,7 +28,7 @@ const Cart = () => {
   localStorage.setItem("totalPrice",total) 
   // const Ctotal = total + (total*18/100)
 
-  const toastnotify = () => { 
+  const moveToAddress = () => { 
    navigate('/address');
   };
   return (
@@ -81,8 +81,8 @@ const Cart = () => {
             <div className="total">
               <h2>₹{total.toFixed(2)}</h2>
             </div>
-            <button onClick={toastnotify} className="btn pointer">
-              Check Out
+            <button onClick={moveToAddress} className="btn pointer">
+              Continue to Buy
             </button>
 
            

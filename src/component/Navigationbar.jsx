@@ -50,7 +50,7 @@ const Navigationbar = () => {
 
               
             </li>
-            <li>Women Western
+            {/* <li>Women Western
                 <div className="subMenu">
                     <div id="womenWestern" className="submenuList">
                     {womenwestern.map((e,i)=> {
@@ -67,7 +67,7 @@ const Navigationbar = () => {
                     </div>
 
                 </div>
-            </li>
+            </li> */}
             <li>Men
                 <div className="subMenu">
                     <div id="men" className="submenuList">
@@ -85,7 +85,7 @@ const Navigationbar = () => {
                     </div>
                 </div>
             </li>
-            <li>Kids
+            {/* <li>Kids
                 <div className="subMenu">
                     <div id="kids" className="submenuList">
                     {kids.map((e,i)=> {
@@ -101,8 +101,8 @@ const Navigationbar = () => {
                     })}
                     </div>
                 </div>
-            </li>
-            <li>Home & Kitchen
+            </li> */}
+            {/* <li>Home & Kitchen
                 <div className="subMenu">
                     <div id="HomeAndKitchen" className="submenuList">
                     {homeandkitchen.map((e,i)=> {
@@ -118,8 +118,8 @@ const Navigationbar = () => {
                     })}
                     </div>
                 </div>
-            </li>
-            <li>Beauty & Health
+            </li> */}
+            {/* <li>Beauty & Health
                 <div className="subMenu">
                     <div id="beautyAndHealth" className="submenuList">
                     {beautyhealth.map((e,i)=> {
@@ -135,7 +135,7 @@ const Navigationbar = () => {
                     })}
                     </div>
                 </div>
-            </li>
+            </li> */}
             <li>Jewellery & Accessories
                 <div className="subMenu">
                     <div id="JewelleryAndAccessories" className="submenuList">
@@ -153,7 +153,7 @@ const Navigationbar = () => {
                     </div>
                 </div>
             </li>
-            <li>Bags & Footwear
+            <li>Bags
                 <div className="subMenu">
                     <div id="BagsFootWarId" className="submenuList">
                     {bagsfootwear.map((e,i)=> {
