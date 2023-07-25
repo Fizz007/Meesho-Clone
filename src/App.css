@@ -208,9 +208,9 @@ nav ul{
   padding: 0;
   list-style: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-  padding: 0px 10px;
+  /* padding: 0px 5px; */
   height: 100%;
   margin: 0; 
   position: relative;
@@ -232,33 +232,31 @@ nav ul li:hover{
 }
 
 
-/**module box submenu***/
-.subMenu{
+/**module box submenu*/
+
+ .subMenu{
   position: absolute;
-  
-  /* height: 400px; */
   top:51px;
   left: 0;
   right: 0;
   background-color: white;
   border: 1px solid #ccc;
   box-sizing: border-box;
-  /* background-color: red; */
   display: none;
   margin: 0px 10px;
   box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
   padding: 20px;
 }
 
-nav ul li:hover .subMenu{
+/* nav ul li:hover .subMenu{
   display: block;
   z-index: 999;
-}
+} */
 
 .subMenu p{
   color:var(--textColor)
 
-}
+} 
 .submenuList{
   display: flex;
 
@@ -347,8 +345,7 @@ nav ul li:hover .subMenu{
   cursor: pointer;
 }
 .google{
-  display: flex;
-  
+  display: flex;  
   width: 160px;
   color: white;
   padding: 12px 5px;
