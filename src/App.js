@@ -12,6 +12,7 @@ import Productpage from "./Pages/Productpage";
 import Address from "./component/Address/Address";
 import Payment from "./component/Payment/Payment";
 import Summary from "./component/Summary/Summary";
+import List from "./List/List";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/address" element={<Address/>} />
         <Route path="/payment" element={<Payment/>} />
         <Route path="/summary" element={<Summary/>} />
+        <Route path="/list" element={<List/>} />
       </Routes>
       <ToastContainer
         position="bottom-center"

@@ -13,7 +13,7 @@ const Product = (props) => {
 
   return (
     <div>
-      <Link target="_blank" style={{ textDecoration: "none" }} to={`/productpage/${item.id}`}>
+      <Link style={{ textDecoration: "none" }} to={`/productpage/${item.id}`}>
         <div className="each-item">
           <div className="img-wrapper">
             <img src={item.image} alt="product-img" />

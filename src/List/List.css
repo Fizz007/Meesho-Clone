@@ -1,5 +1,5 @@
 .each-item-wrapper {
-    /* margin-top: 8rem; */
+    /* margin-top: 4rem; */
     display: grid;
     grid-gap: 35px;
     justify-content: space-between;
@@ -22,4 +22,10 @@
     transition: transform 0.5s;
     border-radius: 10px;
     justify-content: space-evenly;
+  }
+
+  @media  screen and (max-width:426px) {
+    .each-item-wrapper {
+        margin-top: 4rem;
+    }
   }

@@ -1,25 +1,25 @@
-import React from 'react'
+import React from "react";
 
-import bagsfootwear from '../data/BagsFootwear.js'
-import beautyhealth from '../data/BeautyHealth.js'
-import electronic from '../data/Electronic.js'
-import homeandkitchen from '../data/HomeAndKitchen.js'
-import kids from '../data/Kids.js'
-import jewelleryaccessories from '../data/JewelleryAccessories.js'
-import men from '../data/Men.js'
-import womenethnic from '../data/WomenEthnic.js'
-import womenwestern from '../data/WomenWestern.js'
-
+import bagsfootwear from "../data/BagsFootwear.js";
+import beautyhealth from "../data/BeautyHealth.js";
+import electronic from "../data/Electronic.js";
+import homeandkitchen from "../data/HomeAndKitchen.js";
+import kids from "../data/Kids.js";
+import jewelleryaccessories from "../data/JewelleryAccessories.js";
+import men from "../data/Men.js";
+import womenethnic from "../data/WomenEthnic.js";
+import womenwestern from "../data/WomenWestern.js";
 
 const Navigationbar = () => {
   return (
-    <div className='showNav'>
+    <div className="showNav">
       <nav>
         <ul>
-            <li>Women Ethnic
-                <div className="subMenu">
-                    <div id="womenEthic" className="submenuList">
-                   {/* {  womenethnic.map((e)=> {
+          <li>
+            Women Ethnic
+            <div className="subMenu">
+              <div id="womenEthic" className="submenuList">
+                {/* {  womenethnic.map((e)=> {
                         let list = "";
                     list = e.data.map((element)=> `<p>${element}</p>` ).join(" ")           
                                                         
@@ -34,23 +34,25 @@ const Navigationbar = () => {
 
                     })} */}
 
-                    {womenethnic.map((e,i)=> {
-                          return <>
-                             <div className='column' key={i}>
-                                        <h4>{e.heading}</h4>
-                                        
-                                            <p>{e.data.map((element)=> {
-                                                return <p>{element}</p>
-                                            })}</p>
-                                  </div>
-                         </>
-                    })}
-                    </div>
-                </div>
+                {womenethnic.map((e, i) => {
+                  return (
+                    <>
+                      <div className="column" key={i}>
+                        <h4>{e.heading}</h4>
 
-              
-            </li>
-            {/* <li>Women Western
+                        <p>
+                          {e.data.map((element) => {
+                            return <p>{element}</p>;
+                          })}
+                        </p>
+                      </div>
+                    </>
+                  );
+                })}
+              </div>
+            </div>
+          </li>
+          {/* <li>Women Western
                 <div className="subMenu">
                     <div id="womenWestern" className="submenuList">
                     {womenwestern.map((e,i)=> {
@@ -68,24 +70,29 @@ const Navigationbar = () => {
 
                 </div>
             </li> */}
-            <li>Men
-                <div className="subMenu">
-                    <div id="men" className="submenuList">
-                    {men.map((e,i)=> {
-                          return <>
-                             <div className='column' key={i}>
-                                        <h4>{e.heading}</h4>
-                                        
-                                            <p>{e.data.map((element)=> {
-                                                return <p>{element}</p>
-                                            })}</p>
-                                  </div>
-                         </>
-                    })}
-                    </div>
-                </div>
-            </li>
-            {/* <li>Kids
+          <li>
+            Men
+            <div className="subMenu">
+              <div id="men" className="submenuList">
+                {men.map((e, i) => {
+                  return (
+                    <>
+                      <div className="column" key={i}>
+                        <h4>{e.heading}</h4>
+
+                        <p>
+                          {e.data.map((element) => {
+                            return <p>{element}</p>;
+                          })}
+                        </p>
+                      </div>
+                    </>
+                  );
+                })}
+              </div>
+            </div>
+          </li>
+          {/* <li>Kids
                 <div className="subMenu">
                     <div id="kids" className="submenuList">
                     {kids.map((e,i)=> {
@@ -102,7 +109,7 @@ const Navigationbar = () => {
                     </div>
                 </div>
             </li> */}
-            {/* <li>Home & Kitchen
+          {/* <li>Home & Kitchen
                 <div className="subMenu">
                     <div id="HomeAndKitchen" className="submenuList">
                     {homeandkitchen.map((e,i)=> {
@@ -119,7 +126,7 @@ const Navigationbar = () => {
                     </div>
                 </div>
             </li> */}
-            {/* <li>Beauty & Health
+          {/* <li>Beauty & Health
                 <div className="subMenu">
                     <div id="beautyAndHealth" className="submenuList">
                     {beautyhealth.map((e,i)=> {
@@ -136,62 +143,77 @@ const Navigationbar = () => {
                     </div>
                 </div>
             </li> */}
-            <li>Jewellery & Accessories
-                <div className="subMenu">
-                    <div id="JewelleryAndAccessories" className="submenuList">
-                    {jewelleryaccessories.map((e,i)=> {
-                          return <>
-                             <div className='column' key={i}>
-                                        <h4>{e.heading}</h4>
-                                        
-                                            <p>{e.data.map((element)=> {
-                                                return <p>{element}</p>
-                                            })}</p>
-                                  </div>
-                         </>
-                    })}
-                    </div>
-                </div>
-            </li>
-            <li>Bags
-                <div className="subMenu">
-                    <div id="BagsFootWarId" className="submenuList">
-                    {bagsfootwear.map((e,i)=> {
-                          return <>
-                             <div className='column' key={i}>
-                                        <h4>{e.heading}</h4>
-                                        
-                                            <p>{e.data.map((element)=> {
-                                                return <p>{element}</p>
-                                            })}</p>
-                                  </div>
-                         </>
-                    })}
-                    </div>
-                </div>
-            </li>
-            <li>Electronics
-                <div className="subMenu">
-                    <div id="ElectronicsId" className="submenuList">
-                    {electronic.map((e,i)=> {
-                          return <>
-                             <div className='column' key={i}>
-                                        <h4>{e.heading}</h4>
-                                        
-                                            <p>{e.data.map((element)=> {
-                                                return <p>{element}</p>
-                                            })}</p>
-                                  </div>
-                         </>
-                    })}
-                    </div>
-                </div>
-            </li>
+          <li>
+            Jewellery & Accessories
+            <div className="subMenu">
+              <div id="JewelleryAndAccessories" className="submenuList">
+                {jewelleryaccessories.map((e, i) => {
+                  return (
+                    <>
+                      <div className="column" key={i}>
+                        <h4>{e.heading}</h4>
+
+                        <p>
+                          {e.data.map((element) => {
+                            return <p>{element}</p>;
+                          })}
+                        </p>
+                      </div>
+                    </>
+                  );
+                })}
+              </div>
+            </div>
+          </li>
+          <li>
+            Bags
+            <div className="subMenu">
+              <div id="BagsFootWarId" className="submenuList">
+                {bagsfootwear.map((e, i) => {
+                  return (
+                    <>
+                      <div className="column" key={i}>
+                        <h4>{e.heading}</h4>
+
+                        <p>
+                          {e.data.map((element) => {
+                            return <p>{element}</p>;
+                          })}
+                        </p>
+                      </div>
+                    </>
+                  );
+                })}
+              </div>
+            </div>
+          </li>
+          <li>
+            Electronics
+            <div className="subMenu">
+              <div id="ElectronicsId" className="submenuList">
+                {electronic.map((e, i) => {
+                  return (
+                    <>
+                      <div className="column" key={i}>
+                        <h4>{e.heading}</h4>
+
+                        <p>
+                          {e.data.map((element) => {
+                            return <p>{element}</p>;
+                          })}
+                        </p>
+                      </div>
+                    </>
+                  );
+                })}
+              </div>
+            </div>
+          </li>
         </ul>
-
-    </nav>
+      </nav>
+      
     </div>
-  )
-}
+  );
+};
 
-export default Navigationbar
+export default Navigationbar;

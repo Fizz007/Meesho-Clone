@@ -5,6 +5,7 @@ import '../List/List.css'
 import axios from 'axios';
 
 import CreateItem from '../State/CreateItem';
+import Header from '../component/Header';
 
 
 
@@ -38,6 +39,7 @@ const List = () => {
    
     return (
         <>
+        <Header/>
         <div className="each-item-wrapper">
             
             {/* {
